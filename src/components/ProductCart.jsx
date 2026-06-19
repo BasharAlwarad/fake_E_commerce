@@ -11,9 +11,9 @@ const ProductCart = ({ e, setCart }) => {
   };
 
   return (
-    <div className="card bg-base-100 w-96 shadow-sm">
+    <div className="card w-full max-w-sm bg-base-100 shadow-sm">
       <figure>
-        <img src={e.image} width={150} height={150} alt="Shoes" />
+        <img src={e.image} width={150} height={150} alt={e.title} />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{e.title} </h2>

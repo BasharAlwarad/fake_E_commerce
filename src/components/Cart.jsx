@@ -3,9 +3,9 @@ const Cart = () => {
 
   return (
     <div>
-      {localCart?.map((element) => {
+      {localCart?.map((element, index) => {
         return (
-          <div>
+          <div key={index}>
             <img src={element.image} alt="someImage" width={50} height={50} />
           </div>
         );

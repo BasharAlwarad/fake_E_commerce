@@ -10,12 +10,14 @@ const App = () => {
   const [cart, setCart] = useState(localCartLength);
 
   return (
-    <>
-      <Cart />
+    <div className="min-h-screen flex flex-col bg-base-200">
       <Nav cart={cart} />
-      <Products setCart={setCart} />
+      <main className="flex-1">
+        <Products setCart={setCart} />
+        <Cart />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

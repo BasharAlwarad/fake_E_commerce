@@ -1,6 +1,6 @@
 const Nav = ({ cart }) => {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar sticky top-0 z-50 w-full bg-base-100/95 shadow-sm backdrop-blur">
       <div className="flex-1">
         <a className="btn btn-ghost text-xl">HomePage</a>
       </div>
