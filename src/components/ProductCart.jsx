@@ -1,4 +1,11 @@
-const ProductCart = ({ e, setCart }) => {
+// imp use
+import { use } from 'react';
+// imp context
+import { CartContext } from '../contexts/CartContext.jsx';
+
+const ProductCart = ({ e }) => {
+  // let use use the context
+  const { setCart } = use(CartContext);
   const addToCart = () => {
     const localArr = JSON.parse(localStorage.getItem('cartData')) || [];
     const found = localArr.find((x) => x.id === e.id);

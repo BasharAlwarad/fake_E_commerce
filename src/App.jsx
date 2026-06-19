@@ -1,23 +1,25 @@
-import { useState } from 'react';
 import Nav from './components/Nav.jsx';
 import Footer from './components/Footer.jsx';
 import Products from './components/Products.jsx';
 import Cart from './components/Cart.jsx';
 
-const App = () => {
-  const localCartLength =
-    JSON.parse(localStorage.getItem('cartData'))?.length || 0;
-  const [cart, setCart] = useState(localCartLength);
+import { CartProvider } from './contexts/CartContext.jsx';
+import { DataProvider } from './contexts/DataContext.jsx';
 
+const App = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-base-200">
-      <Nav cart={cart} />
-      <main className="flex-1">
-        <Products setCart={setCart} />
-        <Cart />
-      </main>
-      <Footer />
-    </div>
+    <CartProvider>
+      <DataProvider>
+        <div className="min-h-screen flex flex-col bg-base-200">
+          <Nav />
+          <main className="flex-1">
+            <Products />
+            <Cart />
+          </main>
+          <Footer />
+        </div>
+      </DataProvider>
+    </CartProvider>
   );
 };
 

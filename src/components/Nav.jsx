@@ -1,4 +1,15 @@
-const Nav = ({ cart }) => {
+// imp  use from react
+import { use } from 'react';
+// imp context
+import { CartContext } from '../contexts/CartContext.jsx';
+import { DataContext } from '../contexts/DataContext.jsx';
+// let use use the context
+
+const Nav = () => {
+  const { cart } = use(CartContext);
+  const { data } = use(DataContext);
+
+  console.log('here is data from nav' + data);
   return (
     <div className="navbar sticky top-0 z-50 w-full bg-base-100/95 shadow-sm backdrop-blur">
       <div className="flex-1">
