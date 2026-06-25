@@ -1,4 +1,5 @@
 import { useFormStatus } from 'react-dom';
+import { useState } from 'react';
 
 const Submit = () => {
   const { pending } = useFormStatus();
@@ -19,6 +20,12 @@ const Submit = () => {
 };
 
 const Login = () => {
+  const [demoError, setDemoError] = useState(false);
+
+  if (demoError) {
+    throw new Error('Demo error from Login page');
+  }
+
   const handleSubmit = async (formData) => {
     const name = formData.get('name');
     const email = formData.get('email');
@@ -43,6 +50,22 @@ const Login = () => {
         className="w-full max-w-sm space-y-4 rounded-box bg-base-100 p-6 shadow"
       >
         <h1 className="text-2xl font-bold text-center">Login</h1>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={() => setDemoError(true)}
+            className="btn btn-error btn-sm flex-1"
+          >
+            Trigger Error
+          </button>
+          <button
+            type="button"
+            onClick={() => setDemoError(false)}
+            className="btn btn-outline btn-sm flex-1"
+          >
+            Clear Toggle
+          </button>
+        </div>
         <input
           type="text"
           placeholder="name"
