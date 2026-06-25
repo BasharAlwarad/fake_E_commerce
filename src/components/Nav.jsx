@@ -1,13 +1,10 @@
 import { Link } from 'react-router';
 import { use } from 'react';
 import { CartContext } from '../contexts/CartContext.jsx';
-import { DataContext } from '../contexts/DataContext.jsx';
 
 const Nav = () => {
   const { cart } = use(CartContext);
-  const { data } = use(DataContext);
 
-  console.log('here is data from nav' + data);
   return (
     <div className="navbar sticky top-0 z-50 w-full bg-base-100/95 shadow-sm backdrop-blur">
       <div className="flex-1">
