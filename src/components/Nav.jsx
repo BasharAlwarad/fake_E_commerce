@@ -1,9 +1,7 @@
-// imp  use from react
+import { Link } from 'react-router';
 import { use } from 'react';
-// imp context
 import { CartContext } from '../contexts/CartContext.jsx';
 import { DataContext } from '../contexts/DataContext.jsx';
-// let use use the context
 
 const Nav = () => {
   const { cart } = use(CartContext);
@@ -13,7 +11,9 @@ const Nav = () => {
   return (
     <div className="navbar sticky top-0 z-50 w-full bg-base-100/95 shadow-sm backdrop-blur">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">HomePage</a>
+        <Link to={`/`} className="btn btn-ghost text-xl">
+          HomePage
+        </Link>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -26,13 +26,12 @@ const Nav = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {' '}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                />{' '}
+                />
               </svg>
               <span className="badge badge-sm indicator-item"> {cart} </span>
             </div>
@@ -45,7 +44,9 @@ const Nav = () => {
               <span className="text-lg font-bold">8 Items</span>
               <span className="text-info">Subtotal: $999</span>
               <div className="card-actions">
-                <button className="btn btn-primary btn-block">View cart</button>
+                <Link to={`/cart`} className="btn btn-primary btn-block">
+                  View cart
+                </Link>
               </div>
             </div>
           </div>
@@ -68,16 +69,16 @@ const Nav = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a className="justify-between">
+              <Link to={`/profile`} className="justify-between">
                 Profile
                 <span className="badge">New</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a>Settings</a>
+              <Link to={`/setting`}>Settings</Link>
             </li>
             <li>
-              <a>Logout</a>
+              <Link to={`/login`}>Login</Link>
             </li>
           </ul>
         </div>

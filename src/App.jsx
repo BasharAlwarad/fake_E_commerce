@@ -1,25 +1,30 @@
+import { BrowserRouter, Routes, Route } from 'react-router';
 import Nav from './components/Nav.jsx';
 import Footer from './components/Footer.jsx';
 import Products from './components/Products.jsx';
-import Cart from './components/Cart.jsx';
+import Cart from './pages/Cart.jsx';
 
 import { CartProvider } from './contexts/CartContext.jsx';
 import { DataProvider } from './contexts/DataContext.jsx';
 
 const App = () => {
   return (
-    <CartProvider>
-      <DataProvider>
-        <div className="min-h-screen flex flex-col bg-base-200">
-          <Nav />
-          <main className="flex-1">
-            <Products />
-            <Cart />
-          </main>
-          <Footer />
-        </div>
-      </DataProvider>
-    </CartProvider>
+    <BrowserRouter>
+      <CartProvider>
+        <DataProvider>
+          <div className="min-h-screen flex flex-col bg-base-200">
+            <Nav />
+            <main className="flex-1">
+              <Routes>
+                <Route path="/" element={<Products />} />
+                <Route path="/cart" element={<Cart />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </DataProvider>
+      </CartProvider>
+    </BrowserRouter>
   );
 };
 
