@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
+import { CartProvider } from './contexts/CartContext.jsx';
+import { DataProvider } from './contexts/DataContext.jsx';
+
 import Nav from './components/Nav.jsx';
 import Footer from './components/Footer.jsx';
 import Products from './components/Products.jsx';
-import Cart from './pages/Cart.jsx';
-import Login from './pages/Login.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
 
-import { CartProvider } from './contexts/CartContext.jsx';
-import { DataProvider } from './contexts/DataContext.jsx';
+import Cart from './pages/Cart.jsx';
+import Login from './pages/Login.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 const App = () => {
   return (
@@ -22,6 +24,7 @@ const App = () => {
                   <Route path="/" element={<Products />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </ErrorBoundary>
             </main>
